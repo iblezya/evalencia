@@ -28,7 +28,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
   );
 
   return (
-    <AnimateSharedLayout>
+
       <Stack>
 	<Grid gridGap={6} templateColumns="repeat(auto-fill, minmax(240px, 1fr))">
       {products.map(product => 
@@ -68,7 +68,6 @@ const IndexRoute: React.FC<Props> = ({products}) => {
 	</Flex>
 	)}
       </Stack>
-    </AnimateSharedLayout>
   );
 };
 
