@@ -56,7 +56,7 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box fontFamily={'alencia'} fontSize={'2xl'}>E&apos;Valencia</Box>
+            <Box fontFamily={'Mama'} fontSize={'2xl'}>E&apos;Valencia</Box>
             <HStack
               as={'nav'}
               spacing={4}
