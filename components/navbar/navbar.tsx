@@ -7,6 +7,7 @@ import {
   Link,
   IconButton,
   Button,
+  Heading,
   Menu,
   MenuButton,
   MenuList,
@@ -56,7 +57,11 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box fontFamily={'Mama'} fontSize={'2xl'}>E&apos;Valencia</Box>
+            <Box  fontSize={'2xl'}>
+              <Heading fontFamily={'Mama'} as='h1' size='2xl'>
+                E&apos;Valencia
+              </Heading>
+            </Box>
             <HStack
               as={'nav'}
               spacing={4}
