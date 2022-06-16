@@ -7,8 +7,8 @@ import {
   Link,
   IconButton,
   Button,
-  Heading,
   Menu,
+  Text,
   MenuButton,
   MenuList,
   MenuItem,
@@ -17,6 +17,7 @@ import {
   useColorModeValue,
   Stack,
   Icon,
+  Heading,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MdShoppingBag } from 'react-icons/md';
@@ -57,11 +58,9 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box  fontSize={'2xl'}>
-              <Heading fontFamily={'Mama'} as='h1' size='2xl'>
-                E&apos;Valencia
-              </Heading>
-            </Box>
+            <Heading as='h1' fontFamily={'logo'}>
+              E&apos;Valencia
+            </Heading>
             <HStack
               as={'nav'}
               spacing={4}

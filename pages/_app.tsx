@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
-import Fonts from "../components/navbar/font";
+import Fonts from "../styles/customFonts";
 import theme from "../theme";
 
 function MyApp({Component, pageProps}: AppProps) {

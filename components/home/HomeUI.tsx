@@ -6,13 +6,14 @@ import {
   Heading,
   Text,
   Button,
-  Image,
   Icon,
+  Image,
   IconButton,
   createIcon,
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react';
+// import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -24,12 +25,13 @@ export default function Home() {
         direction={{ base: 'column', md: 'row' }}>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
-            lineHeight={1.1}
+            lineHeight={1.5}
             fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+            >
             <Text
               as={'span'}
               position={'relative'}
+              fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
               _after={{
                 content: "''",
                 width: 'full',
@@ -43,7 +45,7 @@ export default function Home() {
               Pasteles y dulces,
             </Text>
             <br />
-            <Text fontSize={'5xl'} as={'span'} color={'red.400'}>
+            <Text fontSize={{ base: '2xl', sm: '3xl', lg: '4xl' }} as={'span'} color={'red.400'}>
               hechos con amor
             </Text>
           </Heading>
@@ -92,6 +94,10 @@ export default function Home() {
               h={'100%'}
               src='/images/logoFinal.png'
             />
+            {/* <Image
+              src="/public/images/logoFinal.png"
+              alt="Picture of the author"
+            /> */}
           </Box>
         </Flex>
       </Stack>

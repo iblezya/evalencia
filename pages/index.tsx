@@ -1,15 +1,4 @@
 import Head from 'next/head';
-
-import {
-  Flex,
-  Container,
-  Heading,
-  Stack,
-  Text,
-  Button,
-  Icon,
-  IconProps,
-} from '@chakra-ui/react';
 import HomeCompIndex from '../components/home';
 import Navbar from '../components/navbar/navbar';
 
