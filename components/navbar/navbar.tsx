@@ -4,11 +4,11 @@ import {
   Flex,
   Avatar,
   HStack,
-  Link,
   IconButton,
   Button,
   Menu,
   Text,
+  Link as CLink,
   MenuButton,
   MenuList,
   MenuItem,
@@ -21,20 +21,58 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MdShoppingBag } from 'react-icons/md';
+import Link from 'next/link';
 
-const Links = ['Inicio', 'Preparación', 'Contactenos'];
+const Links = [
+    {
+      name:"Inicio",
+      path:"/",
+    },
+    {
+      name:"Preparación",
+      path:"preparacion",
+    },
+    {
+      name:"Contactenos",
+      path:"Contacto",
+    },
+  ];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
+const TiendaLink = [
+  {
+    name:"Tienda",
+    path:"/tienda"
+  }
+];
+
+const NavLink = ({ children, path }: { children: ReactNode, path: string }) => (
+  <Link href={path}>
+    <CLink
+      px={2}
+      py={1}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue('red.100', 'red.300'),
+      }}
+    >
+      {children}
+    </CLink>
+  </Link>
+);
+
+const StoreLink = ({ children, path }: { children: ReactNode, path: string }) => (
+  <Link href={path}>
+    <CLink
+      px={2}
+      py={1}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+      }}
+    >
+      {children}
+    </CLink>
   </Link>
 );
 
@@ -64,10 +102,14 @@ export default function Navbar() {
             <HStack
               as={'nav'}
               spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              display={{ base: 'none', md: 'flex' }}
+            > 
+              {Links.map(({ name, path }) => (
+                <NavLink key={path} path={path}>
+                  {name}
+                </NavLink>
+                ))
+              }
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
@@ -79,8 +121,15 @@ export default function Navbar() {
               mr={4}
               leftIcon={<Icon as={MdShoppingBag} />}
               fontSize={'large'}
-              >
-              Tienda
+              shadow={'2xl'}
+              _hover={{
+                bg: 'red.400'
+              }}
+            >
+              {TiendaLink.map(({ name, path }) => (
+                <StoreLink key={path} path={path}>{name}</StoreLink>
+                ))
+              }
             </Button>
           </Flex>
         </Flex>
@@ -88,9 +137,10 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              {Links.map(({ name, path }) => (
+                <NavLink key={path} path={path}>{name}</NavLink>
+                ))
+              }
             </Stack>
           </Box>
         ) : null}
