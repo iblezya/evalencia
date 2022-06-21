@@ -7,15 +7,26 @@ import {
   Text,
   Button,
   Icon,
-  Image,
+  Image as CImg,
   IconButton,
   createIcon,
   IconProps,
   useColorModeValue,
+  chakra,
 } from '@chakra-ui/react';
-// import Image from 'next/image'
+import Image from 'next/image'
+
+
 
 export default function Home() {
+
+  const Logo = chakra(Image, {
+    shouldForwardProp:(prop) => [
+      "width", "height", "src", "alt", "quality", "placeholder", "blurDataURL"
+    ].includes(prop)
+  })
+
+
   return (
     <Container maxW={'7xl'}>
       <Stack
@@ -86,13 +97,14 @@ export default function Home() {
             height={'auto'}
             width={'full'}
             overflow={'hidden'}>
-            <Image
+            <Logo
               alt={'Hero Image'}
-              fit={'cover'}
-              align={'center'}
-              w={'100%'}
-              h={'100%'}
+              width="600"
+              height="600"
               src='/images/logoFinal.png'
+              placeholder='blur'
+              quality='100'
+              blurDataURL='/images/logoFinal.png'
             />
             {/* <Image
               src="/public/images/logoFinal.png"
