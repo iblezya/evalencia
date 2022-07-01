@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { Product } from "./types";
 
 
-export default {
+export const api = {
   list: async (): Promise<Product[]> => {
     return axios
     .get(
