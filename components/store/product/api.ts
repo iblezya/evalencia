@@ -1,11 +1,10 @@
 import axios from "axios";
 import Papa from "papaparse";
-import { resolve } from "path";
 
 import { Product } from "./types";
 
 
-export const api = {
+export default {
   list: async (): Promise<Product[]> => {
     return axios
     .get(
